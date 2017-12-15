@@ -2,8 +2,9 @@ import numpy as np
 import logging
 
 # An updater object can be initialized for various different update rules. The object
-# stores any parameters necessary to compute an update. During a update, the updater
-# takes the parameters, gradients, and learning rate and returns the updated parameters.
+# stores any parameters necessary to compute an update (e.g. momentum, first and second moments, etc.).
+# During a update, the updater takes the parameters, gradients, and learning rate and
+# returns the updated parameters.
 
 class updater(object):
 
