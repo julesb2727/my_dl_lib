@@ -1,5 +1,4 @@
 import numpy as np
-import logging
 from layers import *
 
 # The model object initializes holds a list of all the layers of the network.
