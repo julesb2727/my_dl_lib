@@ -1,9 +1,7 @@
 import numpy as np
 from model import model
 from trainer import trainer
-from data_utils import *
 from keras.datasets import mnist
-from sklearn import datasets
 
 # create lists for 7 layer neural network
 layer_list = ["affine-relu","affine-relu","batchnorm","affine-relu","affine-relu","batchnorm","affine"]
