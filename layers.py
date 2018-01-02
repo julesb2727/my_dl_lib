@@ -2,7 +2,7 @@ import logging
 import numpy as np
 from updater import *
 
-# A layer objects had three dicts, params, grads, and cache. The params are initialized on init of the layer
+# A layer object had three dicts, params, grads, and cache. The params are initialized on init of the layer
 # and will be updated by the updater during a call to update_layer(). The grads are initialized and updated
 # during a call to step backwards. The grads are passed to the updater in order to compute the update on the params.
 # The cache is used to store any intermediary values what might be used later usually during step_backward().

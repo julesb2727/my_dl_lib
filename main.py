@@ -46,3 +46,4 @@ print("test acc: ", test_rate)
 # best_model = my_trainer.train()
 # test_err = best_model.test(X_test,y_test)
 # print("TEST_ERR: ", test_err)
+##TODO: add another use case
