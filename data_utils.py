@@ -7,6 +7,12 @@ import os
 from scipy.misc import imread
 import platform
 
+### I did not write this code
+### It is take from a Stanford online course
+### (http://cs231n.stanford.edu/)
+### It is used to load cfiar-10 data
+
+
 def load_pickle(f):
     version = platform.python_version_tuple()
     if version[0] == '2':
