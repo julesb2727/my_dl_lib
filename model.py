@@ -53,10 +53,7 @@ class model(object):
             else:
                 logging.warning('%s layer type not found, layer not initialized', layer_name)
 
-        # remove dropout on last layer
-        self.layers[-1].dropout = 0
-
-
+        # remove d
 
     def optimize(self, learning_rate):
         for layer in self.layers:
