@@ -53,7 +53,38 @@ class model(object):
             else:
                 logging.warning('%s layer type not found, layer not initialized', layer_name)
 
-        # remove d
+        # remove dropout on last layer
+        self.layers[-1].dropout = 0
+
+    # perform a forward pass through the network and return activations of last layer and weights for regularization
+    def forward_pass(self, x, mode="train"):
+
+        layer_in = x
+        weights = []
+
+        for layer in self.layers:
+            # gather weights for regularization
+            if 'W' in layer.params:
+                weights.append(layer.params["W"])
+            layer_out = layer.step_forward(layer_in,mode)
+            layer_in = layer_out
+
+        return layer_out, weights
+
+    # x here should be the last layer of activations. The weights of the network are passed in order to computer regularization
+    def calculate_loss(self, x, y, weights):
+
+        if self.loss_type == "softmax":
+            return softmax_loss(x,y,weights,self.reg)
+
+    # perform a backward pass through the network, updating the grad params of each layer along the way
+    def backward_pass(self, dx):
+
+        upstream_grad = dx
+
+        for layer in reversed(self.layers):
+            downstream_grad = layer.step_backward(upstream_grad)
+            upstream_grad = downstream_grad
 
     def optimize(self, learning_rate):
         for layer in self.layers:
